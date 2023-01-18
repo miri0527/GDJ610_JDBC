@@ -25,16 +25,16 @@ public class EmployeeController {
 			
 			int select = scanner.nextInt();
 			
-			EmployeeDTO employeeDTO;
+			ArrayList<EmployeeDTO> ar;
 			switch(select) {
 				case 1:
-					ArrayList<EmployeeDTO> ar = employeeDAO.getList();
-					employeeView.view(ar);
+					ar = employeeDAO.getList();
+					employeeView.view2(ar);
 					break;
 				case 2:
 					System.out.println("사원번호를 입력");
 					int num = scanner.nextInt();
-					employeeDTO = employeeDAO.getDetail(num);
+					EmployeeDTO employeeDTO = employeeDAO.getDetail(num);
 					if(employeeDTO !=null) {
 						employeeView.view(employeeDTO);
 					}else {
@@ -45,9 +45,9 @@ public class EmployeeController {
 				case 3:
 					System.out.println("사원이름 검색");
 					String name = scanner.next();
-					employeeDTO = employeeDAO.getSearch(name);
-					if(employeeDTO !=null) {
-						employeeView.view(employeeDTO);
+					 ar = employeeDAO.getSearch(name);
+					if(ar !=null) {
+						employeeView.view(ar);
 					}else {
 						employeeView.view("데이터가 없습니다");
 					}

@@ -73,7 +73,8 @@ public class EmployeeDAO {
 		
 	}
 	//3.사원검색(사원이름으로 검색)
-		public EmployeeDTO getSearch(String search) throws Exception {
+		public ArrayList<EmployeeDTO> getSearch(String search) throws Exception {
+			ArrayList<EmployeeDTO> ar = new ArrayList<EmployeeDTO>();
 			
 			Connection connection = DBConnection.getConnection();
 			
@@ -99,11 +100,12 @@ public class EmployeeDAO {
 				employeeDTO.setManager_id(rs.getInt("MANAGER_ID"));
 				employeeDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
 				
+				ar.add(employeeDTO);
 			}
 			
 			//연결 끊기
 			DBConnection.disConnect(rs, st, connection);
-			return employeeDTO ;
+			return ar ;
 		}
 
 	

@@ -12,6 +12,14 @@ import com.iu.main.util.DBConnection;
 
 public class LocationDAO {
 	
+	//update
+	public void setData(LocationDTO locationDTO) throws Exception{
+		Connection connection = DBConnection.getConnection();
+		
+		
+		
+	}
+	
 	public ArrayList<LocationDTO> getFind(String search) throws Exception {
 		ArrayList<LocationDTO> ar = new ArrayList<LocationDTO>();
 		
@@ -112,4 +120,6 @@ public class LocationDAO {
 		DBConnection.disConnect(rs, st, connection);
 		return ar;
 	}
+	
+	
 }

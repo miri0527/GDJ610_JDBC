@@ -32,6 +32,11 @@ public class DBConnection {
 		
 	}
 	
+	public static void disConnect(PreparedStatement st, Connection connection) throws SQLException {
+		st.close();
+		connection.close();
+	}
+	
 	public static void disConnect(ResultSet rs, PreparedStatement st, Connection connection ) throws SQLException {
 		rs.close();
 		st.close();

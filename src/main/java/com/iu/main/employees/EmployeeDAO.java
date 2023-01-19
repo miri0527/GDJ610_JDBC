@@ -107,6 +107,11 @@ public class EmployeeDAO {
 			DBConnection.disConnect(rs, st, connection);
 			return ar ;
 		}
+		
+		//4.Insert
+		public void setInsert() throws Exception{
+			
+		}
 
 	
 }
